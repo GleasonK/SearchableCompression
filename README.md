@@ -2,12 +2,24 @@
 _This is just a little idea I had. Strictly a proof of concept. Naturally, inspired by Silicon Valley_
 
 ## The Concept
+
+__The Problem:__
+
+Most modern compression relies on a Dictionary Coder which relies on a continuously-
+updated "dictionary", its coding result is dependent on the history (all codes in the 
+dictionary that is derived from the input data up to the current symbol), so it is not 
+possible to jump into a certain location and start decoding, without first decoding all
+of the previous data.
+
+__My Solution:__
+
 This method only works on plain text files. It centers around the idea that
 spaces are the important feature that will be present in almost every file of
 text. Spaces separate words, so if we can tell where the spaces/word boundaries are 
-while in zipped format, we can decipher the words around them.
+while in zipped format, we can begin to decode the words around them.
 
 ## The Implementation
+
 I use a standard Huffman compression algorithm. My implementation does not add
 any unnecessary complexity to the algorithm, but it was done for
 a homework assignment before I understood any OO best practices. I will clean
